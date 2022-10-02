@@ -16,7 +16,7 @@ else:
 for n in range(1, nat):
     print(n, end=' * ')
 while i <= nat:
-    s += i
+    s *= i
     i += 1
 print(nat, '=', s)
 print(f'Factorial of {nat} is equal {s}')
