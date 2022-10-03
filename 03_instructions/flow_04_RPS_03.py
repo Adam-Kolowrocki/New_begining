@@ -10,11 +10,11 @@ print(f'Lets play a game - Rock/Paper/Scissors')
 print(f'\nYou can chose how many rounds You want to play...')
 user_number = int(input('Type a number of rounds -> '))
 print(f'\nAnytime You want, You can end the game just by typing "end".')
-round_number = 1
+round_counter = 0
 draw_count = 0
 user_wins = 0
 comp_wins = 0
-while round_number <= user_number:
+while round_counter <= user_number - 1:
     options = 'r', 'p', 's'
     print(f'\nYou cant chose one of "r" as for rock, "p" as for paper or "s" as for scissors.')
     user_choice = input(f'\nWhat is Your choice -> ')
@@ -23,7 +23,7 @@ while round_number <= user_number:
     if user_choice not in options:
         print(f'\nYou chose wrong option.\n')
         continue
-    round_number += 1
+    round_counter += 1
     comp_choice = choice(options)
     if user_choice == comp_choice:
         print(f'You chose "{user_choice}" and computer choose "{comp_choice}" as well.')
