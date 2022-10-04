@@ -15,4 +15,4 @@ var_x = int(input(f'Which one do You want to be familiar with ->'))
 first_name = table[var_x - 1][0]
 surname = table[var_x - 1][1]
 occupation = table[var_x - 1][2]
-print(f'Name {first_name}, surname {surname}, works as {occupation}.')
+print(f'Name: {first_name}, \nsurname: {surname}, \nworks as: {occupation}.')
