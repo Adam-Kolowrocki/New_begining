@@ -1,17 +1,5 @@
-table = [
-    ['Dorota', 'Wellman', 'journalist']
-    ]
-print(table)
-tuple_1 = (1, 3, 5, 7, 9, 1, 3, 5, 7, 9, 1, 3, 5)
-print(tuple_1)
-set_1 = set(tuple_1)
-print(set_1)
-
-L_test = [1, 2, 3, 4]
-T_test = (1, 2, 3, 4)
-S_test = {1, 2, 3, 4}
-print(L_test, T_test, S_test)
-print('--------------------------------------------------')
+# Create 2 tuples. Then create a list which contain elements with even index from one tuple and not even from second.
+# Translate the list into set.
 tuple_2 = ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k')
 tuple_3 = ('l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'x', 'y', 'z')
 list_1 = []
