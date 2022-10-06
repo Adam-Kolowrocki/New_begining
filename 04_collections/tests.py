@@ -23,5 +23,8 @@ print(txt1)
 print(txt2)
 print(txt3)
 print('####################################################')
+test_tab = []
 for n in range(11):
-    print(1 * n)
+    test_tab.append(n)
+print(test_tab)
+

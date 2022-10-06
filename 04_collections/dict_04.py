@@ -11,5 +11,9 @@ multi = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
          [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
          ]
 print('\n'.join([''.join(['{:5}'.format(item) for item in row]) for row in multi]))
-n = 8
-table_1 = [['y'] * n] * n
+multiplication = []
+for row in range(1, 11):
+    for col in range(1, 11):
+        mul = row * col
+        print(mul, end='  ')
+    print()
