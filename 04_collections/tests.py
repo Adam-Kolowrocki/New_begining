@@ -22,3 +22,6 @@ txt3 = "My name is {}, I'm {}".format("John", 36)
 print(txt1)
 print(txt2)
 print(txt3)
+print('####################################################')
+for n in range(11):
+    print(1 * n)
