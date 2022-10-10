@@ -22,4 +22,3 @@ most_popular = {}
 for subject in subjects_sum:
     most_popular[subject] = subjects_sum.count(subject)
 for key, val in most_popular:
-
