@@ -5,12 +5,12 @@ print(f'This program search for most popular school subject.')
 print(f'It will ask 5 users for 4 most popular subjects...')
 user_count = 0
 school_subjects = {}
-while user_count < 2:
+while user_count < 5:
     user_count += 1
     user_name = input(f'What is your name -> ')
     subject_count = 0
     subjects = []
-    while subject_count < 2:
+    while subject_count < 4:
         subject_count += 1
         subject = input(f'What was Your favorite school subject {subject_count} -> ')
         subjects.append(subject.title())
@@ -21,4 +21,6 @@ for key in school_subjects:
 most_popular = {}
 for subject in subjects_sum:
     most_popular[subject] = subjects_sum.count(subject)
-for key, val in most_popular:
+print(most_popular)
+max_key = max(most_popular, key=most_popular.get)
+print(f'The most popular school subject is {max_key}')
