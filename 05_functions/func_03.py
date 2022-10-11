@@ -1,10 +1,10 @@
 # Write a function which take a list o numbers and returns sum of all its elements.
 def list_sum(n_list):
     """This function returns a sum of elements in the given list."""
-    sum = 0
-    for n in n_list:
-        sum += n
-    return sum
+    result_sum = 0
+    for elem in n_list:
+        result_sum += elem
+    return result_sum
 
 
 user_list = []

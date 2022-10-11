@@ -1,10 +1,10 @@
 # Write a function which returns every even elements from given list of elements (use function from task 2)
-def if_even(user_list):
+def if_even(u_list):
     """This function check if numbers given in list are even."""
     result_list = []
-    for n in user_list:
-        if n % 2 == 0:
-            result_list.append(n)
+    for elem in u_list:
+        if elem % 2 == 0:
+            result_list.append(elem)
     return result_list
 
 
