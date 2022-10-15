@@ -19,11 +19,11 @@ def card_rec(card_numbers):
     american = []
     unknown = []
     for number in card_numbers:
-        if (number[0: 2] == 34 or 37) and (len(number) == 15):
+        if (number[0: 2] == '34' or '37') and (len(number) == 15):
             american.append(number)
-        elif (number[0] == 4) and (len(number) == 13 or 16):
+        elif number[0] == '4' and (len(number) == 13 or 16):
             visa.append(number)
-        elif (len(number) == 16) and ((number[0: 2] == 51 or 55) or (number[0: 4] == 2221 or 2720)):
+        elif (len(number) == 16) and ((number[0: 2] == '51' or '55') or (number[0: 4] == '2221' or '2720')):
             master.append(number)
         else:
             unknown.append(number)
