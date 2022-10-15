@@ -3,11 +3,13 @@ from random import randint
 
 
 def secret_num():
+    """Function generate secret number from range 0-100"""
     secret_number = randint(0, 100)
     return secret_number
 
 
 def game_body(s_number):
+    """Function compare secret number with number given by user and returns specific info"""
     secret_number = s_number
     round_counter = 0
     while round_counter < 6:
@@ -24,6 +26,7 @@ def game_body(s_number):
 
 
 def info():
+    """Begining info"""
     print(f'It is a game Hot/Cold.')
     print(f'You have to guess a secret number in range from 0 to 100.')
     print(f'I will try to help You giving advices - "hot", "warm" and "cold".')

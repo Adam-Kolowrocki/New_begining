@@ -2,6 +2,7 @@
 # It should return info : "Yes, number X is in the given range.", “no, the number X is out of given range."
 
 def usr_range():
+    """Take a range from user"""
     low_end = int(input(f'What is the low end of the range -> '))
     high_end: int = int(input(f'What is the high end of the range -> '))
     while low_end > high_end:
@@ -13,6 +14,7 @@ def usr_range():
 
 
 def range_check(low, high):
+    """Check if "x" is in given range. Print info"""
     x = 18
     if low <= x <= high:
         print(f'Yes, number {x} is in the given range. X = {x}')

@@ -14,6 +14,7 @@ print(f'This program recognize a credit card by number (given in program)')
 
 
 def card_rec(card_numbers):
+    """This function recognize credit cards by they number."""
     visa = []
     master = []
     american = []
@@ -31,6 +32,7 @@ def card_rec(card_numbers):
 
 
 def result(vi, ma, am, un):
+    """Print results of card_rec"""
     print(f'From given numbers I have recognized as follows: ')
     print(f'Those are Visa numbers : {vi}.')
     print(f'Those are MasterCard numbers : {ma}.')

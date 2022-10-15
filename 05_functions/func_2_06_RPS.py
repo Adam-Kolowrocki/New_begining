@@ -9,6 +9,7 @@ from random import choice
 
 
 def menu():
+    """Menu and info function"""
     print(f'Lets play a game - Rock/Paper/Scissors')
     print(f'\nYou can chose how many rounds You want to play...')
     user_number = int(input('Type a number of rounds -> '))
@@ -17,6 +18,7 @@ def menu():
 
 
 def main_game(user_number):
+    """Function compare user choose with computer choose"""
     round_counter = 0
     draw_count = 0
     user_wins = 0
@@ -64,6 +66,7 @@ def main_game(user_number):
 
 
 def game_end(user_wins, comp_wins, draw_count):
+    """This function prints result and info """
     print(f'\nThere was {user_wins} round won by You, {comp_wins} rounds won by computer and {draw_count} draws.')
     if user_wins == comp_wins:
         print(f'\nSo there was a draw in a whole game.')

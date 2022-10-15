@@ -7,11 +7,13 @@ print()
 
 
 def bmi_calc(w, h):
+    """Calculate BMI value"""
     bmi = w / (h ** 2)
     return bmi
 
 
 def bmi_info(bmi):
+    """Print info about BMI and user health"""
     print('If You are', height, 'm tall, and weight', weight, 'Your BMI is:', round(bmi, 2))
     if bmi < 18.5:
         print(f'Your BMi is to low, You are underweight.')
