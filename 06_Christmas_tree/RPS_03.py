@@ -28,41 +28,61 @@ comp_wins = 0
 def main():
     menu()
 
+    if diff == "a":
+        game_a(round_number)
+    elif diff == "b":
+        game_b(round_number)
+
 
 def menu():
     """Main menu and info function"""
     print(f'Lets play a game - Rock/Paper/Scissors\n')
     print(f'You have few options:\nS - Start\nD - Difficulty level\nQ - Quit\n')
-    print(f'\nAnytime during the game You can end the game just by typing "q".')
-    user_choice = ""
-    choice_options = ["s", "d", "q"]
-    while user_choice.lower() not in choice_options:
-        user_choice = input(f'What is Your Choice -> ')
-    if user_choice == "q":
-        game_over()
-    elif user_choice == "s":
-        round_count()
-    elif user_choice == "d":
+    print(f'\nYou can end the game anytime, just by typing "q".')
+    user_m_choice = ""
+    menu_options = ["s", "d", "q"]
+    while user_m_choice.lower() not in menu_options:
+        user_m_choice = input(f'What is Your Choice -> ')
+    if user_m_choice == "q":
+        game_end(round_counter, user_wins, comp_wins, draw_count)
+    elif user_m_choice == "s":
+        diff = "a"
+    elif user_m_choice == "d":
         game_difficulty()
-
-
-def game_over():
-    print(f'Game Over')
+    return diff
 
 
 def game_difficulty():
-    print(f'You have a choice of difficulty.\nA - Smart\nB - Stupid')
-    game_diff = ""
-    choice_options = ["a", "b"]
-    while game_diff.lower() not in choice_options:
-        game_diff = input(f'What is Your choice -> ')
-    round_count(game_diff.lower())
+    print(f'You have a choice of difficulty.\nA - Smart (3 options - regular version)\nB - Stupid(5 options - Sheldon'
+          f' version)')
+    diff = ""
+    diff_options = ["a", "b"]
+    while diff.lower() not in diff_options:
+        diff = input(f'What is Your choice -> ')
+    return diff.lower()
 
 
-def round_count(diff):
+def round_to_play():
     print(f'\nYou can chose how many rounds You want to play...')
-    round_number = int(input('Type a number of rounds -> '))
-    return diff, round_number
+    num_of_rounds = int(input('Type a number of rounds -> '))
+    return num_of_rounds
+
+
+def game_a(round_number):
+    """Function for normal, traditional game "Rock, Paper, Scissors"."""
+    while round_counter <= num_of_rounds - 1:
+        options = 'r', 'p', 's'
+        print(f'\nYou can chose one of \n"r" as for rock, \n"p" as for paper or \n"s" as for scissors.')
+        user_choice = input(f'\nWhat is Your choice -> ')
+
+
+
+
+
+
+
+def game_b(round_number):
+    print(f'Crazy game')
 
 
 def a_game(user_number):
@@ -71,7 +91,7 @@ def a_game(user_number):
         options = 'r', 'p', 's'
         print(f'\nYou can chose one of "r" as for rock, "p" as for paper or "s" as for scissors.')
         user_choice = input(f'\nWhat is Your choice -> ')
-        if user_choice == 'end':
+        if user_choice == 'q':
             break
         if user_choice not in options:
             print(f'\nYou chose wrong option.\n')
@@ -109,9 +129,9 @@ def a_game(user_number):
     return user_wins, comp_wins, draw_count
 
 
-def game_end(user_wins, comp_wins, draw_count):
-    """This function prints result and info """
-    if user_wins == comp_wins == draw_count == 0:
+def game_end(round_counter, user_wins, comp_wins, draw_count):
+    """This function prints statistics and finish the game """
+    if round_counter == 0:
         print(f'Game Over')
     else:
         print(f'\nThere was {user_wins} round won by You, {comp_wins} rounds won by computer and {draw_count} draws.')
