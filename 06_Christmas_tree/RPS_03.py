@@ -2,7 +2,8 @@
 # After each round ask user if he wants to continue "Would you like to continue yes/no:"
 # if no, ask again
 # "No!? We had so much fun together! You will not get away so easily! Prepare yourself for the next round!"
-# And start a round. Add menu with options and welcome screen.
+# And start a round.
+# Add menu with options and welcome screen.
 # Welcome:                      Level selection:        Standardize communicates given to user:
 # S - Start                     Difficulty level:       Your choice:
 # P - Difficulty level          A - Smart               R - Rock
