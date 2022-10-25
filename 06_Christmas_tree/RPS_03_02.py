@@ -60,7 +60,7 @@ def game_a(num_of_rounds, round_counter, user_wins, comp_wins, draw_count):
         print(f'\nYou can chose one of "r" as for rock, "p" as for paper or "s" as for scissors.')
         user_choice = input(f'\nWhat is Your choice -> ').lower()
         if user_choice == 'q':
-            game_end(round_counter, user_wins, comp_wins, draw_count)
+            print(f'Player ended the game')
             break
         if user_choice not in options:
             print(f'\nYou chose wrong option.\n')
@@ -71,30 +71,16 @@ def game_a(num_of_rounds, round_counter, user_wins, comp_wins, draw_count):
             print(f'You chose "{user_choice}" and computer choose "{comp_choice}" as well.')
             print(f'It was a draw')
             draw_count += 1
-        elif comp_choice == "r" and user_choice == "p":
+        elif (comp_choice == "r" and user_choice == "p") or (comp_choice == "p" and user_choice == "s") or \
+                (comp_choice == "s" and user_choice == "r"):
             print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
             print(f'You have won.')
             user_wins += 1
-        elif comp_choice == "r" and user_choice == "s":
+        elif (comp_choice == "r" and user_choice == "s") or (comp_choice == "p" and user_choice == "r") or \
+                (comp_choice == "s" and user_choice == "p"):
             print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
             print(f'The computer won.')
             comp_wins += 1
-        elif comp_choice == "p" and user_choice == "r":
-            print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
-            print(f'The computer won.')
-            comp_wins += 1
-        elif comp_choice == "p" and user_choice == "s":
-            print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
-            print(f'You have won.')
-            user_wins += 1
-        elif comp_choice == "s" and user_choice == "p":
-            print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
-            print(f'The computer won.')
-            comp_wins += 1
-        elif comp_choice == "s" and user_choice == "r":
-            print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
-            print(f'You have won.')
-            user_wins += 1
     menu()
     return user_wins, comp_wins, draw_count, round_counter
 
