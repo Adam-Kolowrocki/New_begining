@@ -86,6 +86,14 @@ def game_a(num_of_rounds):
             print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
             print(f'The computer won.')
             result.append('c')
+        decision_options = "y", "n"
+        decision = ""
+        while decision not in decision_options:
+            decision = input(f'Would you like to continue yes/no: ')
+            if decision == 'n':
+                menu()
+            else:
+                break
     return menu()
 
 
@@ -132,6 +140,14 @@ def game_b(num_of_rounds):
             print(f'You chose "{user_choice}" and computer choose "{comp_choice}".')
             print(f'The computer won.')
             result.append('c')
+        decision_options = "y", "n"
+        decision = ""
+        while decision not in decision_options:
+            decision = input(f'Would you like to continue yes/no: ')
+            if decision == 'n':
+                menu()
+            else:
+                break
     return menu()
 
 
