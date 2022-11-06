@@ -41,19 +41,46 @@
 def main():
     """Main function of the game"""
     print(f'Lets play "Tic Tac Toe" game.\n')
-    print(f'Game is for two players, You can chose "O" or "X".')
+    print('   1   2   3\n'
+          'A  . | . | .\n'
+          'B  . | . | .\n'
+          'C  . | . | .\n')
+
     print(f'It is not needed to use capital letters.')
     input(f'Press any key to continue...')
-    player_names()
 
 
-def player_names():
-    pass
+def player_names(player):
+    player_name = input(f'Type {player} name -> ')
+    return player_name
 
 
-def table_print():
-    print(f'OX')
+def table_print(move, sign):
+    # move = a1
+    print('   1   2   3\n'
+          'A  . | . | .\n'
+          'B  . | . | .\n'
+          'C  . | . | .\n')
+
+
+moves = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
+
+
+def get_move(player):
+    while True:
+        player_move = input(f'Player {player}, what is Your move -> ')
+        if player_move in moves:
+            print(f'Player {player} mark position {player_move.upper()}')
+            return player_move.lower()
 
 
 if __name__ == "__main__":
     main()
+
+player_x = player_names('Player X')
+player_o = player_names('Player O')
+while True:
+    player_x_move = get_move(player_x)
+    table_print(player_x_move, 'X')
+    player_o_move = get_move(player_o)
+    table_print(player_o_move, 'O')
