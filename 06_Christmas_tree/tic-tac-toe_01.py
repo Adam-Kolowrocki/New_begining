@@ -37,11 +37,11 @@
 # Advice - do not start from display. Empty fixed table is not a problem.
 # Plan the play creating algorithm schema of necessary steps.
 table = [
-        [' ', '1', ' ', '2', ' ', '3'],
-        ['A', '.', '|', '.', '|', '.'],
-        ['B', '.', '|', '.', '|', '.'],
-        ['C', '.', '|', '.', '|', '.'],
-    ]
+    [' ', '1', ' ', '2', ' ', '3'],
+    ['A', '.', '|', '.', '|', '.'],
+    ['B', '.', '|', '.', '|', '.'],
+    ['C', '.', '|', '.', '|', '.'],
+]
 
 
 def main():
@@ -131,14 +131,38 @@ def get_move(player):
             return player_move.lower()
 
 
+table = [
+    [' ', '1', ' ', '2', ' ', '3'],
+    ['A', '.', '|', '.', '|', '.'],
+    ['B', '.', '|', '.', '|', '.'],
+    ['C', '.', '|', '.', '|', '.'],
+]
+
+
+def game_result():
+    table_print(table, '0', '0')
+    if (table[1][1] == 'X' and table[1][3] == 'X' and table[1][5] == 'X') or (
+            table[2][1] == 'X' and table[2][3] == 'X' and table[2][5] == 'X') or (
+            table[3][1] == 'X' and table[3][3] == 'X'
+            and table[3][5] == 'X') or (table[1][1] == 'X' and table[2][1] == 'X' and table[3][1] == 'X') or (
+            table[1][3] == 'X' and table[2][3] == 'X' and table[3][3] == 'X') or (table[1][5] == 'X'
+                                                                                  and table[2][5] == 'X' and table[3][
+                                                                                      5] == 'X') or (
+            table[1][1] == 'X' and table[2][3] == 'X'
+            and table[3][5] == 'X') or (table[1][5] == 'X' and table[2][3] == 'X' and table[3][1] == 'X'):
+        print(f'Player X - {player_x} WON THE GAME !!!')
+
+
 if __name__ == "__main__":
     main()
-
 
 player_x = player_names('Player X')
 player_o = player_names('Player O')
 
-while '.' in table[1] or '.' in table[2] or '.' in table[3]:
+if '.' not in table[1] and '.' not in table[2] and '.' not in table[3]:
+    game_result()
+
+while True:
     player_x_move = get_move(player_x)
     table_print(table, player_x_move, 'X')
     player_o_move = get_move(player_o)
