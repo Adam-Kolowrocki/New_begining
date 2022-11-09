@@ -42,85 +42,94 @@ table = [
     ['B', '.', '|', '.', '|', '.'],
     ['C', '.', '|', '.', '|', '.'],
 ]
+moves = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
 
 
 def main():
     """Main function of the game"""
     print(f'Lets play "Tic Tac Toe" game.\n')
-    table_print(table, '0', '0')
+    table_print(table, '0', '0', '0')
     print(f'\nIt is not needed to use capital letters.')
-    input(f'Press any key to continue...')
+    input(f'Press ENTER to continue...')
 
 
-def player_names(player):
-    player_name = input(f'Type {player} name -> ')
-    return player_name
+def player_names():
+    """Collect Players names"""
+    player_x = input(f'Type player X name -> ')
+    player_o = input(f'Type player O name -> ')
+    return player_x, player_o
 
 
-def table_print(table, move, sign):
+def game_play():
+    while True:
+        player_x_move = get_move(player_x)
+        table_print(table, player_x, player_x_move, 'X')
+        player_o_move = get_move(player_o)
+        table_print(table, player_o, player_o_move, 'O')
+
+
+def table_print(table, name, move, sign):
+    """Print game table"""
     if move[0] == 'a' and move[1] == '1':
         if table[1][1] == '.':
             table[1][1] = sign
         else:
             print(f'This move is not allowed...')
-            # get_move(sign)
+            get_move(name)
     elif move[0] == 'a' and move[1] == '2':
         if table[1][3] == '.':
             table[1][3] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'a' and move[1] == '3':
         if table[1][5] == '.':
             table[1][5] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'b' and move[1] == '1':
         if table[2][1] == '.':
             table[2][1] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'b' and move[1] == '2':
         if table[2][3] == '.':
             table[2][3] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'b' and move[1] == '3':
         if table[2][5] == '.':
             table[2][5] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'c' and move[1] == '1':
         if table[3][1] == '.':
             table[3][1] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'c' and move[1] == '2':
         if table[3][3] == '.':
             table[3][3] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
     elif move[0] == 'c' and move[1] == '3':
         if table[3][5] == '.':
             table[3][5] = sign
         else:
             print(f'This move is not allowed...')
-            get_move(sign)
+            get_move(name)
 
     for i in range(len(table)):
         for j in range(len(table[i])):
             print(table[i][j], end=' ')
         print()
     return table
-
-
-moves = ['a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3']
 
 
 def get_move(player):
@@ -131,39 +140,26 @@ def get_move(player):
             return player_move.lower()
 
 
-table = [
-    [' ', '1', ' ', '2', ' ', '3'],
-    ['A', '.', '|', '.', '|', '.'],
-    ['B', '.', '|', '.', '|', '.'],
-    ['C', '.', '|', '.', '|', '.'],
-]
-
-
-def game_result():
-    table_print(table, '0', '0')
-    if (table[1][1] == 'X' and table[1][3] == 'X' and table[1][5] == 'X') or (
-            table[2][1] == 'X' and table[2][3] == 'X' and table[2][5] == 'X') or (
-            table[3][1] == 'X' and table[3][3] == 'X'
-            and table[3][5] == 'X') or (table[1][1] == 'X' and table[2][1] == 'X' and table[3][1] == 'X') or (
-            table[1][3] == 'X' and table[2][3] == 'X' and table[3][3] == 'X') or (table[1][5] == 'X'
-                                                                                  and table[2][5] == 'X' and table[3][
-                                                                                      5] == 'X') or (
-            table[1][1] == 'X' and table[2][3] == 'X'
-            and table[3][5] == 'X') or (table[1][5] == 'X' and table[2][3] == 'X' and table[3][1] == 'X'):
-        print(f'Player X - {player_x} WON THE GAME !!!')
+def game_result(sign):
+    """Checks who won the game"""
+    if (table[1][1] == sign and table[1][3] == sign and table[1][5] == sign) or \
+            (table[2][1] == sign and table[2][3] == sign and table[2][5] == sign) or \
+            (table[3][1] == sign and table[3][3] == sign and table[3][5] == sign) or \
+            (table[1][1] == sign and table[2][1] == sign and table[3][1] == sign) or \
+            (table[1][3] == sign and table[2][3] == sign and table[3][3] == sign) or \
+            (table[1][5] == sign and table[2][5] == sign and table[3][5] == sign) or \
+            (table[1][1] == sign and table[2][3] == sign and table[3][5] == sign) or \
+            (table[1][5] == sign and table[2][3] == sign and table[3][1] == sign):
+        print(f'Player {sign} - - WON THE GAME !!!')
 
 
 if __name__ == "__main__":
     main()
 
-player_x = player_names('Player X')
-player_o = player_names('Player O')
-
-if '.' not in table[1] and '.' not in table[2] and '.' not in table[3]:
-    game_result()
-
-while True:
-    player_x_move = get_move(player_x)
-    table_print(table, player_x_move, 'X')
-    player_o_move = get_move(player_o)
-    table_print(table, player_o_move, 'O')
+player_x, player_o = player_names()
+game_play()
+# while True:
+#     player_x_move = get_move(player_x)
+#     table_print(table, player_x, player_x_move, 'X')
+#     player_o_move = get_move(player_o)
+#     table_print(table, player_o, player_o_move, 'O')
