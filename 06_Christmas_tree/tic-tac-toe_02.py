@@ -60,6 +60,14 @@ def player_names():
     return player_x, player_o
 
 
+def game_play(player_x, player_o):
+    while True:
+        player_x_move = get_move(player_x)
+        table_print(table, player_x, player_x_move, 'X')
+        player_o_move = get_move(player_o)
+        table_print(table, player_o, player_o_move, 'O')
+
+
 def table_print(table, name, move, sign):
     """Print game table"""
     if move[0] == 'a' and move[1] == '1':
@@ -149,8 +157,4 @@ if __name__ == "__main__":
     main()
 
 player_x, player_o = player_names()
-while True:
-    player_x_move = get_move(player_x)
-    table_print(table, player_x, player_x_move, 'X')
-    player_o_move = get_move(player_o)
-    table_print(table, player_o, player_o_move, 'O')
+game_play(player_x, player_o)
