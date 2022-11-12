@@ -18,11 +18,11 @@ def main():
     main_game(player_x, player_o)
 
 
-def print_table(table):
+def print_table(game_table):
     """Prints empty Tic Tac Toe table."""
-    for i in range(len(table)):
-        for j in range(len(table[i])):
-            print(table[i][j], end=' ')
+    for i in range(len(game_table)):
+        for j in range(len(game_table[i])):
+            print(game_table[i][j], end=' ')
         print()
 
 
@@ -35,17 +35,17 @@ def player_names():
 
 def main_game(player_x, player_o):
     while True:
-        ttt_game(player_x, 'X')
-        ttt_game(player_o, 'O')
+        ttt_game(player_x, 'X', player_x, player_o)
+        ttt_game(player_o, 'O', player_x, player_o)
 
 
-def ttt_game(player_name, sign):
+def ttt_game(player_name, sign, player_x, player_o):
     """The game function"""
     move = get_move(player_name)
     if if_move_possible(table, move):
-        add_to_table(table, move, sign, player_name)
+        add_to_table(table, move, sign, player_name, player_x, player_o)
     else:
-        ttt_game(player_name, sign)
+        ttt_game(player_name, sign, player_x, player_o)
 
 
 def get_move(player):
@@ -56,22 +56,22 @@ def get_move(player):
             return moves[player_move.lower()]
 
 
-def if_move_possible(table, move):
+def if_move_possible(game_table, move):
     """Check if move possible"""
-    if table[move[0]][move[1]] == '.':
+    if game_table[move[0]][move[1]] == '.':
         return True
     else:
         print(f'This move is not allowed...')
         return False
 
 
-def add_to_table(table, move, sign, player_name):
-    table[move[0]][move[1]] = sign
-    print_table(table)
-    game_result(sign, player_name)
+def add_to_table(game_table, move, sign, player_name, player_x, player_o):
+    game_table[move[0]][move[1]] = sign
+    print_table(game_table)
+    game_result(sign, player_name, player_x, player_o)
 
 
-def game_result(sign, player):
+def game_result(sign, player, player_x, player_o):
     """Checks who won the game"""
     if (table[1][1] == sign and table[1][3] == sign and table[1][5] == sign) or \
             (table[2][1] == sign and table[2][3] == sign and table[2][5] == sign) or \
@@ -82,26 +82,26 @@ def game_result(sign, player):
             (table[1][1] == sign and table[2][3] == sign and table[3][5] == sign) or \
             (table[1][5] == sign and table[2][3] == sign and table[3][1] == sign):
         print(f'***{player.upper()}*** WON THE GAME !!!')
-        decision()
+        decision(player_x, player_o)
     elif '.' in table[1] or '.' in table[2] or '.' in table[3]:
         return
     else:
         print(f'Draw')
-        decision()
+        decision(player_x, player_o)
 
 
-def decision():
-    end_decision = input(f'Would you like to continue? [yes/no]: ')
-    if end_decision not in ['y', 'n']:
-        decision()
-    elif end_decision == 'y':
-        for i in range(1, 4):
-            for j in range(1, 7, 2):
-                table[i][j] = '.'
-        main_game(player_x, player_o)
-    else:
-        print(f'Game Over')
-        return False
+def decision(player_x, player_o):
+    while True:
+        end_decision = input(f'Would you like to continue? [yes/no]: ')
+        if end_decision in ['y', 'n']:
+            if end_decision == 'y':
+                for i in range(1, 4):
+                    for j in range(1, 7, 2):
+                        table[i][j] = '.'
+                main_game(player_x, player_o)
+            else:
+                print(f'Game Over')
+                return False
 
 
 if __name__ == "__main__":
