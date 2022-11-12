@@ -1,5 +1,5 @@
-def print_segment(n, total_width):
-    for size in range(1, n + 1, 2):
+def print_segment(m, total_width):
+    for size in range(1, m + 1, 2):
         print((size * '*').center(total_width))
 
 
