@@ -1,3 +1,4 @@
+from sys import exit
 table = [
     [' ', '1', ' ', '2', ' ', '3'],
     ['A', '.', '|', '.', '|', '.'],
@@ -10,10 +11,11 @@ moves = {'a1': [1, 1], 'a2': [1, 3], 'a3': [1, 5], 'b1': [2, 1], 'b2': [2, 3], '
 
 def main():
     """Start function of the game"""
-    print(f'Lets play "Tic Tac Toe" game.\n')
+    print(f'Lets play "Tic Tac Toe" game.\n'.center(100))
     print_table(table)
-    print(f'\nIt is not needed to use capital letters.')
-    input(f'Press ENTER to continue...')
+    print(f'It is not needed to use capital letters.'.center(100))
+    print(f'In Your move, first type row than column, eg.: a1\n'.center(100))
+    input(f'Press ENTER to continue...'.center(100))
     player_x, player_o = player_names()
     main_game(player_x, player_o)
 
@@ -28,12 +30,13 @@ def print_table(game_table):
 
 def player_names():
     """Collect Players names"""
-    player_x = input(f'Type player X name -> ')
-    player_o = input(f'Type player O name -> ')
+    player_x = input(f'Type player X name -> ').capitalize()
+    player_o = input(f'Type player O name -> ').capitalize()
     return player_x, player_o
 
 
 def main_game(player_x, player_o):
+    """Main game"""
     while True:
         ttt_game(player_x, 'X', player_x, player_o)
         ttt_game(player_o, 'O', player_x, player_o)
@@ -49,6 +52,7 @@ def ttt_game(player_name, sign, player_x, player_o):
 
 
 def get_move(player):
+    """Take a move from player"""
     while True:
         player_move = input(f'Player {player}, what is Your move -> ')
         if player_move in moves:
@@ -91,6 +95,7 @@ def game_result(sign, player, player_x, player_o):
 
 
 def decision(player_x, player_o):
+    """Take decision if player want to play nex round"""
     while True:
         end_decision = input(f'Would you like to continue? [yes/no]: ')
         if end_decision in ['y', 'n']:
@@ -98,10 +103,16 @@ def decision(player_x, player_o):
                 for i in range(1, 4):
                     for j in range(1, 7, 2):
                         table[i][j] = '.'
+                print_table(table)
                 main_game(player_x, player_o)
             else:
-                print(f'Game Over')
-                return False
+                end_game()
+
+
+def end_game():
+    print(f'Game Over !!!\n'.center(100))
+    print(f'Good bye!'.center(100))
+    exit()
 
 
 if __name__ == "__main__":
