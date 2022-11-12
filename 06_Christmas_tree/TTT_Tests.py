@@ -1,3 +1,21 @@
+moves = {'a1': [1, 1], 'a2': [1, 3], 'a3': [1, 5], 'b1': [2, 1], 'b2': [2, 3], 'b3': [2, 5], 'c1': [3, 1],
+         'c2': [3, 3], 'c3': [3, 5]}
+
+player_move = input(f'Player, what is Your move -> ')
+print(player_move)
+print(type(player_move))
+if player_move[0].isdigit():
+    player_move = player_move[1] + player_move[0]
+print(player_move)
+print(type(player_move))
+if player_move in moves:
+    print(f'Player mark position {player_move.upper()}')
+
+
+
+
+
+
 # def player_names():
 #     """Collect Players names"""
 #     player_x = input(f'Type player X name -> ')
