@@ -7,6 +7,6 @@ else:
 with open(file_name, 'r') as inwo:
     lines = inwo.readlines()
     for i in range(5):
-        print(lines[i])
+        print(f'Line {i + 1} : {lines[i]}')
 
 print(f'The file You point is {os.path.getsize(file_name)} bytes long.')
