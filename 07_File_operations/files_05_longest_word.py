@@ -6,6 +6,7 @@ def main():
 
 
 def get_words_list():
+    """Gets list of words stored in a file "inwokacja.txt" and returns as a list."""
     words_list = []
     with open('/home/adam/Dokumenty/Python-Kurs/Files/inwokacja.txt', 'r') as inwokacja:
         text = inwokacja.readlines()
@@ -15,6 +16,7 @@ def get_words_list():
 
 
 def find_longest(words_list):
+    """Changes list of words in a dictionary of words length, print result."""
     words_dict = {}
     for i in range(len(words_list)):
         words_dict[i] = len(words_list[i])
