@@ -2,17 +2,18 @@
 # Separate cards to different files by type, e.g. visa.txt, mastercard.txt, americanexpress.txt.
 
 def main():
-    print(f'This program recognize a credit card by number (given in program)')
+    print(f'This program recognize a credit card by number (given in file cards_numbers.txt)')
 
 
 def get_card_numbers():
     """Get card numbers from file"""
     numbers_list = []
-    with open('/home/adam/Dokumenty/Python-Kurs/New_beginning/07_File_operations/cadrs_numbers.txt', 'r') as inwokacja:
-        text = inwokacja.readlines()
-        for i in range(len(text)):
-            words_list += text[i].split(' ')
-    return words_list
+    with open('/home/adam/Dokumenty/Python-Kurs/New_beginning/07_File_operations/cards_numbers.txt', 'r') as file:
+        numbers = file.readlines()
+        for i in range(len(numbers)):
+            numbers_list += numbers[i].split(' ')
+    return numbers_list
+
 
 def card_rec(card_numbers):
     """This function recognize credit cards by they number."""
@@ -41,8 +42,7 @@ def result(vi, ma, am, un):
     print(f'Those numbers are unknown : {un}.')
 
 
-result(*card_rec(card_numbers))
-
+result(*card_rec(get_card_numbers()))
 
 
 if __name__ == '__main__':
