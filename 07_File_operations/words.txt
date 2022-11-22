@@ -1,0 +1,5 @@
+animals - zebra, krowa, pies, kot, szczur, bocian, mucha, motyl
+fruits - gruszka, banan, mandarynka, truskawka, marakuja, czereśnia,
+vegetables - marchewka, pietruszka, ziemniak, pomidor, rzodkiewka, burak,
+vehicles - lorry, bicycle, car, bus, coach, plane, vessel, motorbike,
+furniture's - chair, table, desk, sofa, bed, wardrobe,
