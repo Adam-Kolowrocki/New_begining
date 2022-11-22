@@ -12,6 +12,8 @@ def get_card_numbers():
         numbers = file.readlines()
         for i in range(len(numbers)):
             numbers_list += numbers[i].split(' ')
+    print(numbers_list)
+    print(len(numbers_list))
     return numbers_list
 
 
@@ -33,17 +35,24 @@ def card_rec(card_numbers):
     return visa, master, american, unknown
 
 
-def result(vi, ma, am, un):
-    """Print results of card_rec"""
-    print(f'From given numbers I have recognized as follows: ')
-    print(f'Those are Visa numbers : {vi}.')
-    print(f'Those are MasterCard numbers : {ma}.')
-    print(f'Those are American Express numbers : {am}.')
-    print(f'Those numbers are unknown : {un}.')
-
-
-result(*card_rec(get_card_numbers()))
+def result_write(vi, ma, am, un):
+    """Take numbers of cards and write it to the files"""
+    print(f'From given numbers I have recognized cards and write result to files: visa.txt, mastercard.txt, '
+          f'americanexpress.txt and unknown.txt')
+    with open('visa.txt', 'w') as file:
+        for i in range(len(vi)):
+            file.write(vi[i] + '\n')
+    with open('mastercard.txt', 'w') as file:
+        for i in range(len(ma)):
+            file.write(ma[i] + '\n')
+    with open('americanexpress.txt', 'w') as file:
+        for i in range(len(am)):
+            file.write(ma[i] + '\n')
+    with open('unknown.txt', 'w') as file:
+        for i in range(len(un)):
+            file.write(un[i] + '\n')
 
 
 if __name__ == '__main__':
     main()
+    result_write(*card_rec(get_card_numbers()))
