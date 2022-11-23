@@ -7,8 +7,7 @@ from random import choice
 def main():
     print(f'This is a funny game "HANGMAN" \n')
     print(f'User have to guess hidden word chosen from list.\n')
-    select_category()
-    main_body(*words_generator())
+    main_body(*words_generator(select_category()))
 
 
 def select_category():
@@ -24,22 +23,20 @@ def select_category():
     while user_choice not in user_options:
         user_choice = input(f'What is Your choice -> ')
     with open('words.txt', 'r') as file:
-        category = ''
+        category_line = ''
         for i, line in enumerate(file):
             if i == int(user_choice) - 1:
-                category += line.strip()
-    words = category.split(' ')
-    words = words[2:]
+                category_line += line
+    category_line = category_line.replace('- ', '').replace(',', '').replace('\n', '')
+    category_list = category_line.split(' ')
+    category = category_list[0]
+    words = category_list[1:]
+    print(f'You chose a category -> {category}')
+    return words
 
-    print(words)
-    print(type(words))
-    print(len(words))
 
-
-def words_generator():
+def words_generator(words_list):
     """Function returns secret and hidden words"""
-    words_list = ['panaceum', 'bokobrody', 'bananowy', 'magnetyczny', 'poprawkowy', 'przywileje', 'Sewastopol',
-                  'pokemony', 'naturalizacja', 'mistyfikacja', 'polowanie', 'maskarada', 'książka', 'posiadłość']
     secret_word = choice(words_list)
     hidden_word = '_' * len(secret_word)
     temp_word = secret_word
@@ -50,6 +47,7 @@ def words_generator():
 def main_body(secret_word, hidden_word, temp_word):
     """Function find letter given by user in a secret word and return info."""
     trial_counter = 0
+    print(f'The word You looking for is {hidden_word}')
     while trial_counter < 10:
         user_input = input(f'Type a letter You want to check or whole word if You know it -> ')
         if user_input == secret_word:
@@ -71,6 +69,7 @@ def main_body(secret_word, hidden_word, temp_word):
         else:
             trial_counter += 1
             print(f'MISS...\nTry again')
+            print(f'Hidden word is still -> {hidden_word}')
     if trial_counter == 10:
         print(f'You were hanged!!!\n\nSorry....\n\nBetter luck next time.')
 
