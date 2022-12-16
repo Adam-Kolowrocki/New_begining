@@ -15,22 +15,14 @@ def main():
     generator(*data_import())
 
 
-# def data_import():
-#     starts = [], middles, qualifiers, finishes = [], [], [], []
-#     with open('./data3.csv') as file:
-#         for i, line in enumerate(file):
-#             first_coma = line.find(',')
-#             second_coma = line.find(',', first_coma + 1, )
-#             third_coma = line.find(',', second_coma + 1, )
-#             starts.append(line[0: first_coma])
-#             middles.append(line[first_coma + 1: second_coma])
-#             qualifiers.append(line[second_coma + 1: third_coma])
-#             finishes.append(line[third_coma + 1:])
-#     return starts, middles, qualifiers, finishes
 def data_import():
-    starts = [], middles, qualifiers, finishes = [], [], [], []
-    with open('./data3.csv') as file:
-        for i, line in enumerate(file):
+    """Imports data from *.csv file and splits it for lists."""
+    with open('./data4.csv') as file:
+        starts = []
+        middles = []
+        qualifiers = []
+        finishes = []
+        for line in file.readlines():
             first_coma = line.find(',')
             starts.append(line[0: first_coma])
             line = line[first_coma + 1:]
@@ -40,19 +32,12 @@ def data_import():
             third_coma = line.find(',')
             qualifiers.append(line[0: third_coma])
             line = line[third_coma + 1:]
-            finishes.append(line[third_coma + 1:])
+            finishes.append(line)
     return starts, middles, qualifiers, finishes
 
+
 def generator(starts, middles, qualifiers, finishes):
-    print(len(starts)), print(len(middles)), print(len(qualifiers)), print(len(finishes))
-    print(starts[-3])
-    print(middles[-3])
-    print(qualifiers[-3])
-    print(finishes[-3])
-    print(choice(starts))
-    print(choice(middles))
-    print(choice(qualifiers))
-    print(choice(finishes))
+    """Generate quote from words/frazes in lists."""
     quota = choice(starts) + ' ' + choice(middles) + ' ' + choice(qualifiers) + ' ' + choice(finishes)
     print(f'Generated quota is:\n{quota}')
 
