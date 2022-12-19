@@ -39,7 +39,7 @@ def massage_output(coded_string, filename):
     """Save coded massage to the txt file."""
     with open(f'./{filename}.txt', '+w') as file:
         file.write(str(coded_string))
-    print(filename)
+    print(f'The massage was encrypted and saved in a file named {filename}.txt')
 
 
 if __name__ == '__main__':
