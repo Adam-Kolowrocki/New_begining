@@ -2,7 +2,7 @@ import os
 
 filename = 'inwokacja.txt'
 if os.path.isfile(filename):
-    with open(filename, 'r') as f:
-        print(f.read())
+    with open(filename, 'r') as file:
+        print(file.read())
 else:
-    print('There is no such file...')
+    print(f'Thera is no such file...')
