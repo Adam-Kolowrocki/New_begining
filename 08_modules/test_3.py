@@ -6,4 +6,4 @@ if os.path.isfile(filename):
         print(f.read())
 else:
     print('Nie ma takiego pliku')
-
+# with open("./Dokumenty/Python-Kurs/New_beginning/0")
