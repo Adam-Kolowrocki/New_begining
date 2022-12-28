@@ -19,13 +19,13 @@ def data_input():
 
 def bmi_calc(weight, height):
     """Calculate BMI"""
-    bmi_result = weight / (height ** 2)
+    bmi_result = round(weight / (height ** 2), 2)
     return bmi_result, weight, height
 
 
 def info_return(bmi, weight, height):
     """Return info for the user"""
-    print('If You are', height, 'm tall, and weight', weight, 'Your BMI is:', round(bmi, 2))
+    print('If You are', height, 'm tall, and weight', weight, 'Your BMI is:', bmi)
     if bmi <= 18.49:
         print('You are underweight.')
     elif 18.49 < bmi <= 24.99:

@@ -1,7 +1,8 @@
-from bmi import bmi
+from bmi import bmi_calc
 
-weight = 82
-height = 1.85
+print(f'Remember to use dot "." as a separator')
+weight = 82    # input(f'What is Your weight in "kg" >> ')
+height = 1.85    # input('What is Your height in "m" >>' )
 
-bmi(weight, height)
+print(bmi_calc(weight, height))
 
