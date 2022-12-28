@@ -1,4 +1,9 @@
 def main():
+    user_info()
+    info_return(*bmi_calc(*data_input()))
+
+
+def user_info():
     print('This simple code calculate Your BMI - Body Mass Index')
     print()
     print('Remember to use a dot "." as a separator...')
@@ -15,7 +20,7 @@ def data_input():
 def bmi_calc(weight, height):
     """Calculate BMI"""
     bmi_result = weight / (height ** 2)
-    return bmi_result
+    return bmi_result, weight, height
 
 
 def info_return(bmi, weight, height):
@@ -33,6 +38,3 @@ def info_return(bmi, weight, height):
 
 if __name__ == '__main__':
     main()
-    data_input()
-    bmi_calc(weight, height)
-    info_return(bmi, weight, height)
