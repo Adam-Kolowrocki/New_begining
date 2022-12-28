@@ -1,4 +1,4 @@
-underweight = You are underweight... You should eat more and do some sport.
-correct = Your BMI is correct. Live in pace.
-overweight = You are overweight, it's bad. You should do some sports...
-obese = You are obese, You definitely should eat less. Do some sports and live more healthily.
+You are underweight... You should eat more and do some sport.
+Your BMI is correct. Live in pace.
+You are overweight, it's bad. You should do some sports...
+You are obese, You definitely should eat less. Do some sports and live more healthily.
