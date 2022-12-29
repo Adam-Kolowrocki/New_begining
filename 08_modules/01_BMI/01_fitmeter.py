@@ -15,7 +15,7 @@ def data_collect():
 def info_return(bmi, weight, height):
     """Return info for the user"""
     print(f'If You are {height}m tall and weight {weight}kg, Your BMI is: {bmi}')
-    with open('advices.txt', 'r') as f:
+    with open('../advices.txt', 'r') as f:
         if bmi <= 18.49:
             print(f.readlines()[0])
         elif 18.49 < bmi <= 24.99:
