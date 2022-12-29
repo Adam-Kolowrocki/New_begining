@@ -28,21 +28,31 @@ def user_shape(room_number):
 
 def get_dimensions(shape):
     """Collect dimensions from user"""
+    a, b, h, = -1, -1, -1
     if shape == '2' or shape == '6' or shape == '7':
-        a = int(input(f'Type the length of one wall in meters -> '))
+        while a < 0:
+            a = float(input(f'Type the length of one wall in meters -> '))
         return a
     elif shape == '1' or shape == '4':
-        a = int(input(f'Type the length of one wall in meters -> '))
-        h = int(input(f'Type the distance from one corner of the room to the perpendicular wall in meters -> '))
+        while a < 0:
+            a = float(input(f'Type the length of one wall in meters -> '))
+        while h < 0:
+            h = float(input(f'Type the distance from one corner of the room to the perpendicular wall in meters -> '))
         return a, h
     elif shape == '3':
-        a = int(input(f'Type the length of first wall of rectangular shape room in meters -> '))
-        b = int(input(f'Type the length of second wall of rectangular shape room in meters -> '))
+        while a < 0:
+            a = float(input(f'Type the length of first wall of rectangular shape room in meters -> '))
+        while b < 0:
+            b = float(input(f'Type the length of second wall of rectangular shape room in meters -> '))
         return a, b
     else:
-        a = int(input(f'Type the length of first (base) wall of trapeze shape room in meters -> '))
-        b = int(input(f'Type the length of second (base) wall of trapeze shape room in meters -> '))
-        h = int(input(f'Type the shortest distance from one to another base wall of trapeze shape room in meters -> '))
+        while a < 0:
+            a = float(input(f'Type the length of first (base) wall of trapeze shape room in meters -> '))
+        while b < 0:
+            b = float(input(f'Type the length of second (base) wall of trapeze shape room in meters -> '))
+        while h < 0:
+            h = float(input(f'Type the shortest distance from one to another base wall of trapeze shape room '
+                            f'in meters -> '))
         return a, b, h
 
 
