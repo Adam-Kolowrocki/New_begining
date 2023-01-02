@@ -19,9 +19,18 @@ def string_input():
 def find_longest(string):
     longest = ''  # 'banannnnannnnnnnnnanananananaaaana'
     sequence = ''
-    for i in range(len(string) - 1):
-        while string[i] == string[i + 1]:
+    i = 0
+    while i < len(string) - 1:
+        if string[i] == string[i + 1]:
             sequence += string[i]
+            i += 1
+            continue
+        elif string[i] == string[i - 1]:
+            sequence += string[i]
+            i += 1
+            continue
+        else:
+            i += 1
 
     print(sequence)
     #print(longest)
