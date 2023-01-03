@@ -7,7 +7,7 @@ input_str = 'banannnnannnnnnnnnanananananaaaana'
 
 def main():
     print(f'This program finds longest sequent of the same sign in a given string... ')
-    find_longest(input_str)
+    find_longest(list_of_sequences(input_str))
     # find_longest(string_input())
 
 
@@ -16,10 +16,8 @@ def string_input():
     return user_str
 
 
-def find_longest(string):
-    longest = ''  # 'banannnnannnnnnnnnanananananaaaana'
+def find_sequence(string, i):
     sequence = ''
-    i = 0
     while i < len(string) - 1:
         if string[i] == string[i + 1]:
             sequence += string[i]
@@ -27,13 +25,26 @@ def find_longest(string):
             continue
         elif string[i] == string[i - 1]:
             sequence += string[i]
-            i += 1
-            continue
+            return sequence, i
         else:
             i += 1
 
-    print(sequence)
-    #print(longest)
+
+def list_of_sequences(string):
+    i = 0
+    sequences_list = []
+    while i < len(string) - 2:
+        rep_seq, pos = find_sequence(string, i)
+        sequences_list.append(rep_seq)
+        i = pos + 1
+    return sequences_list
+
+
+def find_longest(sequences):
+    longest_dict = {}
+    for i in range(len(sequences)):
+        longest_dict[sequences[i]] = len(sequences[i])
+    print()
 
 
 if __name__ == "__main__":
