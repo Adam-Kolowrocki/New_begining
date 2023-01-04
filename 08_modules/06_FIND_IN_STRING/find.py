@@ -28,12 +28,13 @@ def find_sequence(string, i):
             return sequence, i
         else:
             i += 1
+    return sequence, i
 
 
 def list_of_sequences(string):
     i = 0
     sequences_list = []
-    while i < len(string) - 2:
+    while i < len(string) - 1:
         rep_seq, pos = find_sequence(string, i)
         sequences_list.append(rep_seq)
         i = pos + 1
