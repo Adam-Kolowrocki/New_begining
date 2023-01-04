@@ -1,14 +1,25 @@
 #  Stwórz program, który dla dowolnego ciągu znajduje najdłuższą sekwencję takich samych znaków oraz jej długość np.
 # Wejście:       var = ‘banannnnannnnnnnnnanananananaaaana’
 # Wyjście :      ‘nnnnnnnnn’, 9
-
+import test_gen
 input_str = 'banannnnannnnnnnnnanananananaaaana'
 
 
 def main():
     print(f'This program finds longest sequent of the same sign in a given string... ')
-    find_longest(list_of_sequences(input_str))
-    # find_longest(list_of_sequences(string_input()))
+    user_options = ['u', 'c', 's']
+    user_choice = ''
+    while user_choice not in user_options:
+        user_choice = input(f'If You want to give Your set of characters to generate string, press "u",\n'
+                            f'if You want computer to generate string from characters 0 to 9, press "c",\n'
+                            f'if You want to use standard string, press "s" -> ').lower()
+    if user_choice == "s":
+        find_longest(list_of_sequences(input_str))
+    elif user_choice == "c":
+        find_longest(list_of_sequences(test_gen.num_gen()))
+    elif user_choice == "u":
+        user_set = test_gen.user_set()
+        find_longest(list_of_sequences(test_gen.user_gen(user_set)))
 
 
 def string_input():
