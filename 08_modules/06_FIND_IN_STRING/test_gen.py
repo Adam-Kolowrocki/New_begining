@@ -7,6 +7,7 @@ import random
 
 
 def main():
+    """Info and Menu of script"""
     print(f'This is a random sequence generator.')
     print(f'It can generate 30 char sequence from integer numbers from 0 to 9,'
           f' or sequence of characters given by user.')
@@ -21,6 +22,7 @@ def main():
 
 
 def user_set():
+    """Collect User set of characters"""
     user_choice_count = int(input(f'How many characters do You want to input -> '))
     user_char_list = []
     n = 1
@@ -33,6 +35,7 @@ def user_set():
 
 
 def num_gen():
+    """Generate random string of numbers from 0 to 9"""
     test_string = ''
     for i in range(30):
         test_string += str(random.randrange(0, 9, 1))
@@ -40,6 +43,7 @@ def num_gen():
 
 
 def user_gen(char_list):
+    """Generate random string of characters given by user"""
     test_string = ''
     for i in range(30):
         test_string += str(random.choice(char_list))

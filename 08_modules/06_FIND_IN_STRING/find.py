@@ -6,6 +6,7 @@ input_str = 'banannnnannnnnnnnnanananananaaaana'
 
 
 def main():
+    """Main info and manu of the script"""
     print(f'This program finds longest sequent of the same sign in a given string... ')
     user_options = ['u', 'c', 's']
     user_choice = ''
@@ -22,14 +23,10 @@ def main():
         find_longest(list_of_sequences(test_gen.user_gen(user_set)))
 
 
-def string_input():
-    user_str = input(f'Type a string to analyze and find longest sequence -> ')
-    return user_str
-
-
 def find_sequence(string, i):
+    """Finds sequence of repeating characters"""
     sequence = ''
-    while i < len(string) - 1:
+    while i < (len(string) - 1):
         if string[i] == string[i + 1]:
             sequence += string[i]
             i += 1
@@ -43,9 +40,10 @@ def find_sequence(string, i):
 
 
 def list_of_sequences(string):
+    """Making list of sequences"""
     i = 0
     sequences_list = []
-    while i < len(string) - 1:
+    while i < (len(string) - 1):
         rep_seq, pos = find_sequence(string, i)
         sequences_list.append(rep_seq)
         i = pos + 1
@@ -53,6 +51,7 @@ def list_of_sequences(string):
 
 
 def find_longest(sequences):
+    """Finds longest sequence"""
     longest = max(sequences, key=len)
     print(f'The longest repeated sequence is {longest} and it is {len(longest)} characters long.')
 
