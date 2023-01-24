@@ -7,27 +7,15 @@ def main():
 
 def data_collect():
     print(f'Remember to use dot "." as a separator')
-    while True:
-        try:
-            weight = float(input(f'What is Your weight in "kg" >> '))
-        except ValueError:
-            print(f'You give wrong value, it should be float with dot "." as separator.')
-            continue
-        break
-    while True:
-        try:
-            height = float(input('What is Your height in "m" >> '))
-        except ValueError:
-            print(f'You give wrong value, it should be float with dot "." as separator.')
-            continue
-        break
+    weight = float(input(f'What is Your weight in "kg" >> '))
+    height = float(input('What is Your height in "m" >> '))
     return weight, height
 
 
 def info_return(bmi, weight, height):
     """Return info for the user"""
     print(f'If You are {height}m tall and weight {weight}kg, Your BMI is: {bmi}')
-    with open('./advices.txt', 'r') as f:
+    with open('../advices.txt', 'r') as f:
         if bmi <= 18.49:
             print(f.readlines()[0])
         elif 18.49 < bmi <= 24.99:
