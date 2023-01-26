@@ -17,11 +17,11 @@ try:
         errors = file_2.read()
         print(errors)
 except io.UnsupportedOperation:
-    print(f'You cant read from file opened in "w" mode.')
+    print(f'You can not read from file opened in "w" mode.')
 
 try:
     with open('errors.txt', 'x') as file_3:
         test = file_3.read()
         print(test)
 except FileExistsError:
-    print(f'You cannot create file, it already exist.')
+    print(f'You can not create file, it already exist.')
