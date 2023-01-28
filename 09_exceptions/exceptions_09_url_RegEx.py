@@ -9,8 +9,9 @@
 #     .com
 # If given address is not a link, rise the URLError exception, which will inform that the URL is wrong.
 # Rewrite it with regula expressions (RegEx).
-import webbrowser
+import re
 import urllib.error
+import webbrowser
 
 
 def main():
@@ -23,13 +24,16 @@ def get_url():
 
 
 def exceptions(url):
-    starts = ("https://", "http://", "www")
-    if url[0:8] != starts[0] and url[0:7] != starts[1] and url[0:3] != starts[2]:
+    beginnings = re.search("^https://", url) or re.search("^http://", url) or re.search("^www", url)
+    if not beginnings:
         raise urllib.error.URLError("The URL should start with https://, http:// or www")
-    ends = (".pl", ".com")
-    if url[-4:] != ends[1] and url[-3:] != ends[0]:
+    else:
+        pass
+    ends = re.search(".pl$", url) or re.search(".com$", url)
+    if not ends:
         raise urllib.error.URLError('The url should end with ".pl" or ".com"')
-    webbrowser.open(url)
+    else:
+        webbrowser.open(url)
 
 
 if __name__ == "__main__":
