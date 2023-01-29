@@ -8,12 +8,10 @@ town = [
     [1, 0, 1, 0, 1, 0, 1],
     [0, 1, 0, 0, 1, 1, 1]
 ]
+connection = 1
 for row in enumerate(town):
-    print(row)
-    # for col in enumerate(row):
-        # if row[col] == 1:
-            # print(row[col])
-# for row in town:
-#     for col in row:
-#         if row[col] == 1:
-#             print(town[row], "---", row[col])
+    lst = row[1]
+    for i in range(len(lst)):
+        if lst[i] == 1:
+            print(f'This is the connection nr {connection} -> ', row[0], "---", i)
+            connection += 1
