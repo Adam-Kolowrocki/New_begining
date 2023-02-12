@@ -8,7 +8,8 @@ print(f'Third list - addition to even elements : {list_3}')
 # string formatting
 
 arg = ["Adam", 41, "build and fly drones"]
-test_str = "Hi, my name is {name}, I'm {age} years old and i like to {hobby}.".format(name = arg[0], age = arg[1], hobby = arg[2])
+test_str = "Hi, my name is {name}, I'm {age} years old and i like to {hobby}.".format(
+    name=arg[0], age=arg[1], hobby=arg[2])
 print(test_str)
 
 print("-------------------------------------------------")
