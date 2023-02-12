@@ -3,7 +3,7 @@
 
 print(f'Returns sum of all multiples of 5 and 7 smaller than N given by User.')
 a, b = 5, 7
-n = int(input(f'Type our limit number -> '))
+num = int(input(f'Type our limit number -> '))
 
 
 def s_o_m(n):
@@ -14,4 +14,4 @@ def s_o_m(n):
     return c
 
 
-print(f'Sum of all multiples of 5 and 7 smaller than {n} is : {s_o_m(n)}')
+print(f'Sum of all multiples of 5 and 7 smaller than {n} is : {s_o_m(num)}')
