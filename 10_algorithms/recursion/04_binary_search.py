@@ -6,27 +6,40 @@
 # Output:
 #     “Number 21 is on the list”
 data = [3, 15, 45, 2, 6, 12, 44, 34, 21, 56, 7, 3, 12]
-elem = 22
+elem = 21
 data.sort()
+low_i = 0
+hi_i = len(data) - 1
 
 
-def binary_search(n, d):
-    si = 0
-    ei = len(d)
-    mi = (si + ei) // 2
-    if n == d[mi]:
-        print(f'Number {n} is on the list.')
-    elif n < d[mi]:
-        ei = mi - 1
-        binary_search(n, d[si:ei])
-    elif n > d[mi]:
-        si = mi + 1
-        binary_search(n, d[si:ei])
-    else:
-        print(f'Number {n} is not on the list.')
+def binary_search_iter(x, lis, low, hi):
+    while low <= hi:
+        mi = (low + hi) // 2
+        if low == hi and lis[low] != x:
+            return f"Number {x} is not in the list"
+        elif x == lis[mi]:
+            return f"Number {x} is in the list"
+        elif x < lis[mi]:
+            hi = mi - 1
+            continue
+        elif x > lis[mi]:
+            low = mi + 1
+            continue
 
 
-binary_search(elem, data)
+def binary_search_rec(x, lis, low, hi):
+    if low > hi:
+        return f"Number {x} is not in the list"
+    mi = (low + hi) // 2
+    if x == lis[mi]:
+        return f"Number {x} is in the list"
+    elif x < lis[mi]:
+        hi = mi - 1
+        return binary_search_iter(x, lis, low, hi)
+    elif x > lis[mi]:
+        low = mi + 1
+        return binary_search_iter(x, lis, low, hi)
 
 
-
+print(binary_search_iter(elem, data, low_i, hi_i))
+print(binary_search_rec(elem, data, low_i, hi_i))
