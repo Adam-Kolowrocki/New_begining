@@ -14,4 +14,4 @@ def s_o_m(n):
     return c
 
 
-print(f'Sum of all multiples of 5 and 7 smaller than {n} is : {s_o_m(num)}')
+print(f'Sum of all multiples of 5 and 7 smaller than {num} is : {s_o_m(num)}')
