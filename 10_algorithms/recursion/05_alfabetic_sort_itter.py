@@ -28,9 +28,13 @@ print(f'\nList sorted alfabetic : \n')
 st = time.time()
 print(names_list)
 # alphabet = ABCDEFGHIJKLMNOPRSTUWXYZ
-while
 
-
+# ----------------------------------------
+# for i in range(len(names_list) - 1):
+#     j = i + 1
+#     while names_list[i][0] < names_list[j][0]:
+#         names_list[i], names_list[j] = names_list[j], names_list[i]
+# ----------------------------------------
 print(f'First pass')
 for i in range(len(names_list) - 1):
     if names_list[i][0] < names_list[i + 1][0]:
