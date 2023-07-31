@@ -27,22 +27,22 @@ for i in enumerate(names_list):
 print(f'\nList sorted alphabetic : \n')
 
 
-def sorting_alpha(n_list):
-    for j in range(len(n_list) - 1):
-        if n_list[j][0] == n_list[j + 1][0]:
-            end_time = time
-            return n_list, end_time
-        else:
-            for k in range(len(n_list[j]) - 1):
-                if n_list[j + 1][k] < n_list[j][k]:
-                    tmp = n_list[j + 1]
-                    n_list.pop((j + 1))
-                    n_list.insert(j, tmp)
-    end_time = time
-    return n_list, end_time
+# def sorting_alpha(n_list):
+#     for j in range(len(n_list) - 1):
+#         if n_list[j][0] == n_list[j + 1][0]:
+#             end_time = time
+#             return n_list, end_time
+#         else:
+#             for k in range(len(n_list[j]) - 1):
+#                 if n_list[j + 1][k] < n_list[j][k]:
+#                     tmp = n_list[j + 1]
+#                     n_list.pop((j + 1))
+#                     n_list.insert(j, tmp)
+#     end_time = time
+#     return n_list, end_time
 
-
-start_time = time
-sorting_alpha(names_list)
-sort_time = end_time - start_time
-print(f'Sorting proces took {sort_time} s')
+#
+# start_time = time
+# sorting_alpha(names_list)
+# sort_time = end_time - start_time
+# print(f'Sorting proces took {sort_time} s')
