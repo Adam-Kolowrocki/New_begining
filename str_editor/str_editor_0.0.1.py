@@ -18,20 +18,9 @@ for j in range(len(user_choice)):
 print('You have chosen to delete:')
 for k in range(len(user_choice_labels)):
     print(user_choice_labels[k])
-# print('zerowa linia ->', input_data[0])
-# print('pierwsza linia ->', input_data[1])
+
 print('druga linia ->', input_data[2])
-# print(type(input_data[2]))
-# print('trzecia linia ->', input_data[3])
-# print('czwarta linia ->', input_data[4])
-# print('piata linia ->', input_data[5])
-# print('szosta linia ->', input_data[6])
-# print(type(input_data[6]))
-# print('siodma linia ->', input_data[7])
-# print('osma linia ->', input_data[8])
-# print('dziewiata linia ->', input_data[9])
-# print('dziesiata linia ->', input_data[10])
-# print(type(input_data[10]))
+# linie zawierajace info o parametrach lotu w pliku srt : 2, 6, 10, 14 itd
 
 fl = len(input_data)
 print('Plik wejsciowy ma lini ', fl)
